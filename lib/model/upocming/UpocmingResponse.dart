@@ -1,5 +1,5 @@
+import '../Results.dart';
 import 'Dates.dart';
-import 'Results.dart';
 
 class UpcomingResponse {
   Dates? dates;

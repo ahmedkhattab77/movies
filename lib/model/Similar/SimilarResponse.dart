@@ -1,25 +1,16 @@
 import '../Results.dart';
 
-class PopularResponse {
-  int? status_code;
-  String? status_message;
-  bool? success;
-  int? page;
-  List<Results>? results;
-  int? totalPages;
-  int? totalResults;
+class SimilarResponse {
+  SimilarResponse(
+      {this.page,
+      this.results,
+      this.totalPages,
+      this.totalResults,
+      this.success,
+      this.status_message,
+      this.status_code});
 
-  PopularResponse({
-    this.page,
-    this.results,
-    this.totalPages,
-    this.totalResults,
-    this.status_code,
-    this.status_message,
-    this.success,
-  });
-
-  PopularResponse.fromJson(dynamic json) {
+  SimilarResponse.fromJson(dynamic json) {
     status_code = json['status_code'];
     status_message = json['status_message'];
     success = json['success'];
@@ -34,13 +25,21 @@ class PopularResponse {
     totalResults = json['total_results'];
   }
 
-  PopularResponse copyWith({
+  int? status_code;
+  String? status_message;
+  bool? success;
+  int? page;
+  List<Results>? results;
+  int? totalPages;
+  int? totalResults;
+
+  SimilarResponse copyWith({
     int? page,
     List<Results>? results,
     int? totalPages,
     int? totalResults,
   }) =>
-      PopularResponse(
+      SimilarResponse(
         page: page ?? this.page,
         results: results ?? this.results,
         totalPages: totalPages ?? this.totalPages,
