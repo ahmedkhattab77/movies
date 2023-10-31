@@ -1,34 +1,19 @@
 /// adult : false
-/// backdrop_path : "/t5zCBSB5xMDKcDqe91qahCOUYVV.jpg"
-/// genre_ids : [27,9648]
-/// id : 507089
+/// backdrop_path : "/kG7qDxVT1JNlVrDauIo5eqmJwjQ.jpg"
+/// genre_ids : [18,80,10770]
+/// id : 495398
 /// original_language : "en"
-/// original_title : "Five Nights at Freddy's"
-/// overview : "Recently fired and desperate for work, a troubled young man named Mike agrees to take a position as a night security guard at an abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon discovers that nothing at Freddy's is what it seems."
-/// popularity : 7124.811
-/// poster_path : "/A4j8S6moJS2zNtRR8oWF08gRnL5.jpg"
-/// release_date : "2023-10-25"
-/// title : "Five Nights at Freddy's"
+/// original_title : "Deadly Exchange"
+/// overview : "Samantha and daughter Blake invite Chloe, a foreign exchange student from Britain, into their California home. The two girls become close friends but Samantha's uneasiness begins with the suspicious death of Blake's boyfriend. Samantha sets out to prove her daughter's innocence, discovering Chloe's ultimate plan is to \"adopt\" Samantha as her \"mum\"."
+/// popularity : 3.583
+/// poster_path : "/o21MfGDm60Dv5ueBOLYuIflpALE.jpg"
+/// release_date : "2017-12-27"
+/// title : "Deadly Exchange"
 /// video : false
-/// vote_average : 8.466
-/// vote_count : 953
+/// vote_average : 6.2
+/// vote_count : 13
 
 class Results {
-  bool? adult;
-  String? backdropPath;
-  List<int>? genreIds;
-  int? id;
-  String? originalLanguage;
-  String? originalTitle;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  String? releaseDate;
-  String? title;
-  bool? video;
-  double? voteAverage;
-  int? voteCount;
-
   Results({
     this.adult,
     this.backdropPath,
@@ -62,6 +47,21 @@ class Results {
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
+
+  bool? adult;
+  String? backdropPath;
+  List<int>? genreIds;
+  int? id;
+  String? originalLanguage;
+  String? originalTitle;
+  String? overview;
+  double? popularity;
+  String? posterPath;
+  String? releaseDate;
+  String? title;
+  bool? video;
+  double? voteAverage;
+  int? voteCount;
 
   Results copyWith({
     bool? adult,

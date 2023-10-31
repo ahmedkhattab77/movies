@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:movies/model/Seaech/SearchResponce.dart';
+import 'package:movies/model/Similar/SimilarResponse.dart';
 import 'package:movies/model/popualer/PopularRequest.dart';
 import 'package:movies/model/top_rated/TopRateResponse.dart';
 import 'package:movies/model/upocming/UpocmingResponse.dart';
@@ -29,7 +31,6 @@ class ApiManger {
     var popularResponse = PopularResponse.fromJson(json);
     return popularResponse;
   }
-
   Future<UpcomingResponse> getUpcoming() async {
     var url = Uri.https(baseUrl, '3/movie/upcoming', {
       'language': 'en-US',
@@ -43,7 +44,6 @@ class ApiManger {
     var upcomingResponse = UpcomingResponse.fromJson(json);
     return upcomingResponse;
   }
-
   Future<TopRateResponse> getTopRate() async {
     var url = Uri.https(baseUrl, '3/movie/top_rated', {
       'language': 'en-US',
@@ -56,5 +56,35 @@ class ApiManger {
     var json = jsonDecode(response.body);
     var topRateResponse = TopRateResponse.fromJson(json);
     return topRateResponse;
+  }
+
+  Future<SimilarResponse> getSimilar(int movie_id) async {
+    var url = Uri.https(baseUrl, '3/movie/$movie_id/simila', {
+      'language': 'en-US',
+      'page': '1',
+    });
+    var response = await http.get(
+      url,
+      headers: headers,
+    );
+    var json = jsonDecode(response.body);
+    var similarResponse = SimilarResponse.fromJson(json);
+    return similarResponse;
+  }
+
+  Future<SearchResponce> getSearch(String search) async {
+    var url = Uri.https(baseUrl, '3/search/movie', {
+      'query': search,
+      'language': 'en-US',
+      'include_adult': 'false',
+      'page': '1',
+    });
+    var response = await http.get(
+      url,
+      headers: headers,
+    );
+    var json = jsonDecode(response.body);
+    var searchResponse = SearchResponce.fromJson(json);
+    return searchResponse;
   }
 }
