@@ -53,7 +53,6 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
   List<Widget> page = [
     const HomeView(),
     const SearchView(),
