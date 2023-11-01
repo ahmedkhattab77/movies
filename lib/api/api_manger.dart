@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:movies/model/Seaech/SearchResponce.dart';
 import 'package:movies/model/Similar/SimilarResponse.dart';
+import 'package:movies/model/browse/Browse.dart';
 import 'package:movies/model/popualer/PopularRequest.dart';
 import 'package:movies/model/top_rated/TopRateResponse.dart';
 import 'package:movies/model/upocming/UpocmingResponse.dart';
@@ -15,7 +16,7 @@ class ApiManger {
     'accept': 'application/json'
   };
 
-  Future<PopularResponse> getPopular() async {
+  static Future<PopularResponse> getPopular() async {
     var url = Uri.https(baseUrl, '3/discover/movie', {
       'include_adult': 'false',
       'include_video': 'false',
@@ -31,7 +32,8 @@ class ApiManger {
     var popularResponse = PopularResponse.fromJson(json);
     return popularResponse;
   }
-  Future<UpcomingResponse> getUpcoming() async {
+
+  static Future<UpcomingResponse> getUpcoming() async {
     var url = Uri.https(baseUrl, '3/movie/upcoming', {
       'language': 'en-US',
       'page': '1',
@@ -44,7 +46,8 @@ class ApiManger {
     var upcomingResponse = UpcomingResponse.fromJson(json);
     return upcomingResponse;
   }
-  Future<TopRateResponse> getTopRate() async {
+
+  static Future<TopRateResponse> getTopRate() async {
     var url = Uri.https(baseUrl, '3/movie/top_rated', {
       'language': 'en-US',
       'page': '1',
@@ -58,7 +61,7 @@ class ApiManger {
     return topRateResponse;
   }
 
-  Future<SimilarResponse> getSimilar(int movie_id) async {
+  static Future<SimilarResponse> getSimilar(int movie_id) async {
     var url = Uri.https(baseUrl, '3/movie/$movie_id/simila', {
       'language': 'en-US',
       'page': '1',
@@ -72,7 +75,7 @@ class ApiManger {
     return similarResponse;
   }
 
-  Future<SearchResponce> getSearch(String search) async {
+  static Future<SearchResponce> getSearch(String search) async {
     var url = Uri.https(baseUrl, '3/search/movie', {
       'query': search,
       'language': 'en-US',
@@ -86,5 +89,18 @@ class ApiManger {
     var json = jsonDecode(response.body);
     var searchResponse = SearchResponce.fromJson(json);
     return searchResponse;
+  }
+
+  static Future<BrowseResponse> getBrowse() async {
+    var url = Uri.https(baseUrl, '3/genre/movie/list', {
+      'language': 'en-US',
+    });
+    var response = await http.get(
+      url,
+      headers: headers,
+    );
+    var json = jsonDecode(response.body);
+    var browseResponse = BrowseResponse.fromJson(json);
+    return browseResponse;
   }
 }

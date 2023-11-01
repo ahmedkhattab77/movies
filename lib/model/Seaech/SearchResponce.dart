@@ -1,12 +1,14 @@
 import '../Results.dart';
 
 class SearchResponce {
-  SearchResponce({
-    this.page,
-    this.results,
-    this.totalPages,
-    this.totalResults,
-  });
+  SearchResponce(
+      {this.page,
+      this.results,
+      this.totalPages,
+      this.totalResults,
+      this.status_code,
+      this.status_message,
+      this.success});
 
   SearchResponce.fromJson(dynamic json) {
     page = json['page'];
@@ -20,6 +22,9 @@ class SearchResponce {
     totalResults = json['total_results'];
   }
 
+  int? status_code;
+  String? status_message;
+  bool? success;
   int? page;
   List<Results>? results;
   int? totalPages;
