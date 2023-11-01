@@ -5,6 +5,6 @@ class WatchListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Container();
   }
 }

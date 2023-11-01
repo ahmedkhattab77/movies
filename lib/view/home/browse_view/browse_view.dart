@@ -5,6 +5,94 @@ class BrowseView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: GridView.count(
+          mainAxisSpacing: 24,
+          crossAxisSpacing: 24,
+          crossAxisCount: 2,
+          children: [
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+            Container(
+              color: Colors.white,
+              height: 50,
+            ),
+          ]),
+    );
   }
 }

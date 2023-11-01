@@ -19,6 +19,16 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: const Color(0xff2a2c2a),
+        title: const Text(
+          'Movies App',
+          style:
+              TextStyle(fontWeight: FontWeight.w600, color: Color(0xffF8B639)),
+        ),
+      ),
+      backgroundColor: const Color(0xff121312),
       body: page[selectIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
@@ -34,16 +44,19 @@ class _HomeState extends State<Home> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Color(0xff121312),
             icon: Icon(Icons.search),
             label: 'Search',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Color(0xff121312),
             label: 'Browse',
             icon: ImageIcon(
               AssetImage('assets/images/icon_browse.png'),
             ),
           ),
           BottomNavigationBarItem(
+            backgroundColor: Color(0xff121312),
             label: 'Watch List',
             icon: ImageIcon(
               AssetImage('assets/images/icon_WatchList.png'),
@@ -53,9 +66,10 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
   List<Widget> page = [
     const HomeView(),
-    const SearchView(),
+    SearchView(),
     const BrowseView(),
     const WatchListView(),
   ];
