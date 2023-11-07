@@ -2,12 +2,21 @@ import 'Genres.dart';
 
 class BrowseResponse {
   List<Genres>? genres;
+  int? status_code;
+  String? status_message;
+  bool? success;
 
   BrowseResponse({
+    this.status_message,
+    this.success,
+    this.status_code,
     this.genres,
   });
 
   BrowseResponse.fromJson(dynamic json) {
+    status_code = json['status_code'];
+    status_message = json['status_message'];
+    success = json['success'];
     if (json['genres'] != null) {
       genres = [];
       json['genres'].forEach((v) {
