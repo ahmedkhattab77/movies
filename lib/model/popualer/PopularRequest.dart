@@ -1,13 +1,13 @@
 import '../Results.dart';
 
 class PopularResponse {
-  int? status_code;
+  num? status_code;
   String? status_message;
   bool? success;
   int? page;
   List<Results>? results;
-  int? totalPages;
-  int? totalResults;
+  num? totalPages;
+  num? totalResults;
 
   PopularResponse({
     this.page,

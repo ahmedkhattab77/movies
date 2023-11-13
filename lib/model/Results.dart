@@ -45,8 +45,8 @@ class Results {
   String? releaseDate;
   String? title;
   bool? video;
-  double? voteAverage;
-  int? voteCount;
+  num? voteAverage;
+  num? voteCount;
 
   Results copyWith({
     bool? adult,
