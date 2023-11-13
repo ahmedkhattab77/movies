@@ -7,6 +7,9 @@ class UpcomingResponse {
   List<Results>? results;
   int? totalPages;
   int? totalResults;
+  int? status_code;
+  String? status_message;
+  bool? success;
 
   UpcomingResponse({
     this.dates,
@@ -14,9 +17,15 @@ class UpcomingResponse {
     this.results,
     this.totalPages,
     this.totalResults,
+    this.status_code,
+    this.status_message,
+    this.success,
   });
 
   UpcomingResponse.fromJson(dynamic json) {
+    status_code = json['status_code'];
+    status_message = json['status_message'];
+    success = json['success'];
     dates = json['dates'] != null ? Dates.fromJson(json['dates']) : null;
     page = json['page'];
     if (json['results'] != null) {

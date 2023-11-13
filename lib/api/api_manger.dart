@@ -16,14 +16,14 @@ class ApiManger {
     'accept': 'application/json'
   };
 
+  //final response = await http.get(Uri.parse(
+  //         'https://api.themoviedb.org/3/movie/popular?api_key=7099f13be0ff703863e57b10982f58c3')
+
   static Future<PopularResponse> getPopular() async {
-    var url = Uri.https(baseUrl, '3/discover/movie', {
-      'include_adult': 'false',
-      'include_video': 'false',
-      'language': 'en-US',
-      'page': '1',
-      'sort_by': 'popularity.desc'
-    });
+    // final response = await http.get(Uri.parse(
+    //          'https://api.themoviedb.org/3/movie/popular?api_key=7099f13be0ff703863e57b10982f58c3'));
+    var url = Uri.parse(
+        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1');
     var response = await http.get(
       url,
       headers: headers,
@@ -61,8 +61,8 @@ class ApiManger {
     return topRateResponse;
   }
 
-  static Future<SimilarResponse> getSimilar(int movie_id) async {
-    var url = Uri.https(baseUrl, '3/movie/$movie_id/simila', {
+  static Future<SimilarResponse> getSimilar(String movie_id) async {
+    var url = Uri.https(baseUrl, '3/movie/$movie_id/similar', {
       'language': 'en-US',
       'page': '1',
     });
